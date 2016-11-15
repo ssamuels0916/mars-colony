@@ -1,7 +1,7 @@
 <ul>
     <li *ngFor="let apple of appleList">
         <div>
-            Type:{{apple.type}}
+            Type:{{apple.name}}
         </div>
         <div>
             Colour:{{apple.colour}}
@@ -9,9 +9,12 @@
     </li>
 </ul>
 <div>
-    <form>
+    <form #appleForm="ngForm">
         <h4> Apple Form</h4>
-        Type: <input type="text" /> Colour: <input type="text" />
-        <button type="" (click)="addApple()">Add Apple</button>
+        Name: <input type="text" [(ngModel)]="apple.name" name="name" required/> Colour: <input type="text" [(ngModel)]="apple.colour" name="colour" required/>
+        <button type="" (click)="addApple()" [disabled]="appleForm.form.invalid">
+        Add Apple
+        </button>
+        <!--{{renderAppleForm(appleForm)}}-->
     </form>
 </div>
