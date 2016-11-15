@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+html {
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    height: 100%;
+    width: 100vw;
+}

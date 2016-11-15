@@ -1,0 +1,14 @@
+<div class="register-container">
+    <h1> Register {{colonist.age}} </h1> //to test
+
+    <form class="register-form" action="register" method="post">
+
+        <input type="text" name="name" placeholder="Name" id="name" [(ngModel)]="colonist.name" name="name">
+        <input type="number" min="18" max="180" step="1" placeholder="Age" id="age" [(ngModel)]="colonist.age" name="age">
+        <select name="job-title" class="job">
+         <!--add jobs-->
+         <option *ngFor = "let job of marsJobs">{{job.name}}</option>
+        </select>
+    </form>
+    <a href="" class="check-in">Check-in!</a>
+</div>
