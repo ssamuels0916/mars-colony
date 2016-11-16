@@ -1,0 +1,77 @@
+h1 {
+    font-size: 2.4rem;
+    text-align: center;
+    padding-top: 2%;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+p {
+    font-size: 1.5rem;
+    text-align: center;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    margin-bottom: 2%;
+}
+
+.report-container {
+    background-color: black;
+    height: 100vh;
+}
+
+.report-form {
+    height: 300px;
+    padding: 0 5%;
+}
+
+form.register-form {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.alien-report {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 1.4rem;
+    background-color: black;
+    color: white;
+    height: 50px;
+    border: none;
+    margin-bottom: 20px;
+    border-bottom: 3px solid white;
+}
+
+::-webkit-input-placeholder,
+.alien-report {
+    color: red;
+}
+
+textarea {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 1.4rem;
+}
+
+button {
+    border: none;
+    color: white;
+    font-size: 2.4rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    background-color: black;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+div.submit-report {
+    width: 100vw;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}

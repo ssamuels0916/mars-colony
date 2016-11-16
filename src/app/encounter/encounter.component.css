@@ -1,7 +1,19 @@
-.check-in {
-    height: 20%;
-    width: 100vw;
-    background-color: black;
+h1 {
+    font-size: 2.4rem;
+    text-align: center;
+    margin-top: 2%;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+p {
+    font-size: 1.5rem;
+    text-align: center;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    margin-bottom: 2%;
 }
 
 a {
@@ -15,4 +27,29 @@ a {
 
 a:hover {
     cursor: pointer;
+}
+
+.encounter-list {
+    height: 300px;
+}
+
+button {
+    border: none;
+    color: white;
+    font-size: 2.4rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    background-color: black;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+div.report-encounter {
+    width: 100vw;
+    height: 400px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
 }

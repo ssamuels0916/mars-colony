@@ -1,3 +1,16 @@
-<p>
-  alien-report works!
-</p>
+<div class="report-container">
+    <h1>Report Encounters</h1>
+    <p>Safety on Mars is your responsibility</p>
+    <div class="report-form">
+        <form class="register-form" action="register" method="post">
+            <select class="alien-report">
+            <option [value] = "">--Select alien type--</option>
+            <option *ngFor = "" [value] = ""></option>
+          </select>
+            <textarea placeholder="Action taken" cols="30" rows="10"></textarea>
+        </form>
+    </div>
+    <div class="submit-report">
+        <button [disabled]="noJobSelected" class="check-in">Submit Report</button>
+    </div>
+</div>

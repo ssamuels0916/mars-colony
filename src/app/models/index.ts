@@ -13,13 +13,19 @@ export class Encounter {
     ) {}
 
 }
-export class Colonist {
+export class NewColonist {
     constructor(
         public name: string,
-        public job: Job,
-        public id: number,
-        public age: number
+        public job_id: string,
+        public age: string
     ) {}
+
+}
+interface Colonist {
+        name: string;
+         job: Job;
+         id: number;
+         age: number;
 
 }
 export class Job {
@@ -39,4 +45,5 @@ export class Alien {
         ) {}
 
 }
+
 
