@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 
 import { Alien } from '../models';
 @Injectable()
-export class AliensService {
+export default class AliensService {
 
 
   ALIENS_JSON = 'https://red-wdp-api.herokuapp.com/api/mars/aliens';
@@ -16,6 +16,6 @@ export class AliensService {
 
     getAlienReport(): Observable<Alien[]> {
       return this.http.get(this.ALIENS_JSON)
-      .map((res: Response) => res.json().alien);
+      .map((res: Response) => res.json().aliens);
       }
          }

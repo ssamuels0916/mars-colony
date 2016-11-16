@@ -1,16 +1,18 @@
 <div class="register-container">
     <h1> Register {{colonist.age}} | {{colonist.name}} | {{colonist.job_id}} </h1> //to test
 
-    <form class="register-form" action="register" method="post">
+    <form class="register-form" (ngSubmit)="onSubmit($event,registerForm)" #registerForm="ngForm" action="register">
 
         <input type="text" name="name" placeholder="Name" id="name" [(ngModel)]="colonist.name" name="name">
         <input type="number" min="18" max="180" step="1" placeholder="Age" id="age" [(ngModel)]="colonist.age" name="age">
+
         <select class="job" [(ngModel)]="colonist.job_id" name="job_id">
          <!--add jobs-->
          <option [value] = "NO_JOB_SELECTED">--Select a job--</option>
          <option *ngFor = "let job of marsJobs" [value] = "job.id">{{job.name}}</option>
         </select>
+        <button class="check-in">Check-in!</button>
     </form>
 
-    <button [disabled]="noJobSelected" class="check-in">Check-in!</button>
+
 </div>

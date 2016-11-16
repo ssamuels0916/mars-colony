@@ -41,8 +41,11 @@ a {
     font-size: 1.3rem;
 }
 
-form {
+.register-form {
     margin-bottom: 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 button {

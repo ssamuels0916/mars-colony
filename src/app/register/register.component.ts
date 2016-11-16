@@ -16,6 +16,8 @@ export class RegisterComponent implements OnInit {
 
   NO_JOB_SELECTED = '(none)';
 
+
+
   constructor(jobService: JobsService) {
     this.colonist = new NewColonist(null, this.NO_JOB_SELECTED, null );
 
@@ -25,7 +27,6 @@ export class RegisterComponent implements OnInit {
       console.log(err);
 
     });
-
 }
 
 
@@ -36,6 +37,11 @@ export class RegisterComponent implements OnInit {
    }, 2000);
 
   console.log('i am on time');
+  }
+  onSubmit(event,registerForm) {
+    event.preventDefault();
+    
+   console.log(registerForm.form.controls.name.invalid = true);
   }
 
   get noJobSelected (){

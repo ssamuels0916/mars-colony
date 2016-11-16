@@ -1,11 +1,18 @@
 <div class="encounter-container">
     <h1>Recent Encounters</h1>
     <p>See an Alien? Report it!</p>
-    <div class="encounter-list">
+
+    <ul class="encounters-listed">
+
+        <li *ngFor=" let encounter of marsEncounters">
+            <p> {{encounter.date}} - {{encounter.atype}} </p>
+            <p> {{encounter.action}}</p>
+        </li>
+
+    </ul>
 
 
+    <!-- end of encounter-list div -->
+    <div class="report-encounter ">
+        <button class="report ">Report Encounters</button>
     </div>
-    <div class="report-encounter">
-        <button [disabled]="noJobSelected" class="check-in">Report Encounter</button>
-    </div>
-</div>

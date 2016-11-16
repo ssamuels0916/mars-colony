@@ -3,9 +3,9 @@
     <p>Safety on Mars is your responsibility</p>
     <div class="report-form">
         <form class="register-form" action="register" method="post">
-            <select class="alien-report">
+            <select class="alien-report" [(ngModel)]="alien_type" name="type">
             <option [value] = "">--Select alien type--</option>
-            <option *ngFor = "" [value] = ""></option>
+            <option *ngFor = "let alien of marsAliens" [value] = "alien_type">{{alien.type}}</option>
           </select>
             <textarea placeholder="Action taken" cols="30" rows="10"></textarea>
         </form>
