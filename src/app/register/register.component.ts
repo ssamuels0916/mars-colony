@@ -31,7 +31,13 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
 
+  setTimeout(( ) => {
+    console.log('i am late!');
+   }, 2000);
+
+  console.log('i am on time');
   }
+
   get noJobSelected (){
     return this.colonist.job_id === this.NO_JOB_SELECTED;
   }
