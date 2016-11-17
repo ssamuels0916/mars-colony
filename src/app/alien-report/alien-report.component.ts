@@ -3,7 +3,7 @@ import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from
 import { Alien } from '../models';
 import  AliensService  from '../services/aliens.service';
 
-const notNone = (value) =>{
+const notNone = (value) => {
 
   return value === '(none)' ? false : true;
 }
@@ -19,12 +19,12 @@ export class AlienReportComponent implements OnInit {
   marsAliens: Alien[];
   alienForm: FormGroup;
 
-  constructor(alienService: AliensService) { 
+  constructor(alienService: AliensService) {
 
 
   alienService.getAlienReport().subscribe((aliens) => {
       this.marsAliens = aliens;
-     
+
   }, (err) => {
     console.log(err);
 

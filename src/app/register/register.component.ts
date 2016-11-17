@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators,ValidatorFn, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { NewColonist, Job } from '../models';
 import  JobsService  from '../services/jobs.service';
 
@@ -39,18 +39,34 @@ export class RegisterComponent implements OnInit {
   return control.value === value ? {'cant be none': {value}} : null;
   };
 }
+
+tooOld(value: number): ValidatorFn {
+return (control: AbstractControl): {[key: string]: any} => {
+  return control.value > 100 ? {'too old': {value}} : null;
+};
+
+}
   ngOnInit() {
 
   this.registerForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     age: new FormControl('', [Validators.required, Validators.maxLength(3)]),
-    job_id: new FormControl('(none)', [this.cantBe(this.NO_JOB_SELECTED)])
+    job_id: new FormControl(this.NO_JOB_SELECTED, [this.cantBe(this.NO_JOB_SELECTED)])
   });
 
   }
 
 
-  onSubmit(event, registerForm) {
+  onSubmit(event) {
     event.preventDefault();
+    if (this.registerForm.invalid) {
+      // the form is invalid...
+    } else {
+      const name = this.registerForm.get('name').value;
+      const age = this.registerForm.get('age').value;
+      const job_id = this.registerForm.get('job_id').value;
+      console.log('ok, let us register this new colonist:', new NewColonist(name, age, job_id));
+
+    }
   }
 }

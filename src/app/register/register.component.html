@@ -1,9 +1,9 @@
 <div class="register-container">
     <h1> Register</h1> //to test
 
-    <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit($event,registerForm)">
+    <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit($event)">
 
-        <input type="text" name="name" placeholder="Name" id="name" formControlName="name">
+        <input type="text" placeholder="Name" id="name" formControlName="name">
         <input type="number" min="18" max="180" step="1" placeholder="Age" id="age" formControlName="age">
 
         <select class="job" formControlName="job_id">
