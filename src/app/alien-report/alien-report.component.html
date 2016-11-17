@@ -2,8 +2,8 @@
     <h1>Report Encounters</h1>
     <p>Safety on Mars is your responsibility</p>
     <div class="report-form">
-        <form class="register-form" action="register" method="post">
-            <select class="alien-report" [(ngModel)]="alien_type" name="type">
+        <form class="register-form" [formGroup]="alienForm" (ngSubmit)="onSubmit($event,registerForm)">
+            <select class="alien-report" formControlName="type">
             <option [value] = "">--Select alien type--</option>
             <option *ngFor = "let alien of marsAliens" [value] = "alien_type">{{alien.type}}</option>
           </select>
@@ -11,6 +11,6 @@
         </form>
     </div>
     <div class="submit-report">
-        <button [disabled]="noJobSelected" class="check-in">Submit Report</button>
+        <button class="check-in">Submit Report</button>
     </div>
 </div>

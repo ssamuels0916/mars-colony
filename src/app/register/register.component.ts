@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder, Validators,ValidatorFn, AbstractControl } from '@angular/forms';
 import { NewColonist, Job } from '../models';
 import  JobsService  from '../services/jobs.service';
+
+
+
 
 
 @Component({
@@ -11,15 +15,16 @@ import  JobsService  from '../services/jobs.service';
 })
 export class RegisterComponent implements OnInit {
 
+// declare data types here
   colonist: NewColonist;
   marsJobs: Job[];
+  registerForm: FormGroup;
 
   NO_JOB_SELECTED = '(none)';
 
 
 
-  constructor(jobService: JobsService) {
-    this.colonist = new NewColonist(null, this.NO_JOB_SELECTED, null );
+  constructor(public jobService: JobsService) {
 
     jobService.getJobs().subscribe((jobs) => {
         this.marsJobs = jobs;
@@ -29,22 +34,23 @@ export class RegisterComponent implements OnInit {
     });
 }
 
-
+ cantBe(value: string): ValidatorFn {
+  return (control: AbstractControl): {[key: string]: any} => {
+  return control.value === value ? {'cant be none': {value}} : null;
+  };
+}
   ngOnInit() {
 
-  setTimeout(( ) => {
-    console.log('i am late!');
-   }, 2000);
+  this.registerForm = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    age: new FormControl('', [Validators.required, Validators.maxLength(3)]),
+    job_id: new FormControl('(none)', [this.cantBe(this.NO_JOB_SELECTED)])
+  });
 
-  console.log('i am on time');
   }
-  onSubmit(event,registerForm) {
+
+
+  onSubmit(event, registerForm) {
     event.preventDefault();
-    
-   console.log(registerForm.form.controls.name.invalid = true);
-  }
-
-  get noJobSelected (){
-    return this.colonist.job_id === this.NO_JOB_SELECTED;
   }
 }
