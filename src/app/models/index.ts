@@ -13,36 +13,50 @@ export class Encounter {
     ) {}
 
 }
+export interface Encounter {
+        id: number;
+        date: string;
+        colonist_id: number;
+        atype: string;
+        action: string;
+
+}
+export class NewEncounter {
+    constructor(
+       public atype: string,
+        public date: string,
+        public action: string,
+        public colonist_id: number
+    ) {}
+
+}
+
 export class NewColonist {
     constructor(
         public name: string,
         public job_id: string,
-        public age: string
+        public age: number
     ) {}
 
 }
-interface Colonist {
+export interface Colonist {
         name: string;
          job: Job;
          id: number;
          age: number;
 
 }
-export class Job {
-    constructor(
-        public name: string,
-        public id: number,
-        public description: string
-        ) {}
+export interface Job {
+        name: string;
+        id: number;
+        description: string;
 
 }
-export class Alien {
-    constructor(
-        public type: string,
-        public submitted_by: string,
-        public id: number,
-        public description: string
-        ) {}
+export interface Alien {
+        type: string;
+         submitted_by: string;
+         id: number;
+         description: string;
 
 }
 

@@ -16,7 +16,6 @@ export class EncounterComponent implements OnInit {
 
 
   constructor(encounterService: EncountersService) {
-  
 
     encounterService.getEncounters().subscribe((encounters) => {
         this.marsEncounters = encounters;

@@ -2,15 +2,19 @@
     <h1>Report Encounters</h1>
     <p>Safety on Mars is your responsibility</p>
     <div class="report-form">
-        <form class="register-form" [formGroup]="alienForm" (ngSubmit)="onSubmit($event,registerForm)">
-            <select class="alien-report" formControlName="type">
-            <option [value] = "">--Select alien type--</option>
-            <option *ngFor = "let alien of marsAliens" [value] = "alien_type">{{alien.type}}</option>
+        <form class="register-form" [formGroup]="alienForm" (ngSubmit)="onSubmit($event)">
+            <select class="alien-report" formControlName="atype">
+                <!--atype is the name of the field we send to the server-->
+                <!--[value] Angular sees what is in this and sends the value-->
+            <option [value] = "NO_ALIEN_SELECTED">--Select alien type--</option>
+            <option *ngFor = "let alien of marsAliens" [value]="alien.type">{{alien.type}}</option>
           </select>
-            <textarea placeholder="Action taken" cols="30" rows="10"></textarea>
+            <textarea placeholder="Action taken" cols="30" rows="10" formControlName="action"></textarea>
+            <button type="submit" class="check-in">Submit Report</button>
         </form>
+
     </div>
-    <div class="submit-report">
-        <button class="check-in">Submit Report</button>
-    </div>
+</div>
+<div class="submit-report">
+
 </div>

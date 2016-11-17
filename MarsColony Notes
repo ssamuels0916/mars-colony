@@ -1,0 +1,15 @@
+mars colony
+
+Date
+function date(Today){
+  console.log('Unix epoch:' , Today.getTime());
+  return `${Today.getFullYear()} - ${Today.getMonth() +1} - ${Today.getDate()}`
+}
+  console.log(date(new Date()));
+
+
+Data Persistence - Store item to get it
+Local Storage
+
+localStorage.setItem('Test', JSON.stringify({hello: 'Hello World'}));
+
