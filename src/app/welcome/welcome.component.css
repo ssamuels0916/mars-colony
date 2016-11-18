@@ -1,0 +1,33 @@
+.welcome-container {
+    background: url('../assets/lightning.jpeg') no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 3rem;
+    color: white;
+    padding: 25%;
+    text-align: center;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 1.9rem;
+    color: white;
+    text-align: center;
+}
+
+a {
+    color: white;
+}
+
+.pulse-button {
+    text-align: center;
+    height: 10%;
+}

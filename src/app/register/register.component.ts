@@ -67,10 +67,12 @@ return (control: AbstractControl): {[key: string]: any} => {
       
       
       const colonist = new NewColonist(name, job_id, age);
-
-      this.colonistService.submitColonist(colonist).subscribe(() => {
+      
+      this.colonistService.submitColonist(colonist).subscribe((response) => {
+        localStorage.setItem("colonist_id", JSON.stringify(response.id));
         this.router.navigate(['/encounter']);
         console.log('success');
+        
       
     } , (err) => {
         console.log(err);
