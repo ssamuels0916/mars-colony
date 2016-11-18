@@ -22,7 +22,7 @@ getEncounters(): Observable<Encounter[]> {
       const headers  = new Headers();
       headers.append('Content-Type', 'application/json');
 
-     return this.http.post(this.ENCOUNTERS_JSON, encounter, { headers })
+     return this.http.post(this.ENCOUNTERS_JSON, { encounter }, { headers })
           .map((res: Response) => res.json().encounter);
 
   }

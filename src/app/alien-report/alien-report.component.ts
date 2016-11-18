@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { Alien } from '../models';
+import { Alien, NewEncounter } from '../models';
 import { cantBe } from '../shared/validators';
 import  AliensService  from '../services/aliens.service';
 import EncountersService from '../services/encounters.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class AlienReportComponent implements OnInit {
   NO_ALIEN_SELECTED = '(none)';
 
   constructor(private alienService: AliensService,
-              private encountersService: EncountersService) {
+              private encountersService: EncountersService,
+              private router: Router) {
 
 
       alienService.getAlienReport().subscribe((aliens) => {
@@ -28,9 +30,8 @@ export class AlienReportComponent implements OnInit {
       }, (err) => {
         console.log(err);
       });
-
   }
-
+  
   ngOnInit() {
 
     this.alienForm = new FormGroup({
@@ -39,8 +40,29 @@ export class AlienReportComponent implements OnInit {
   });
 
   }
-onSubmit(event, alienForm) {
-    //event.preventDefault();
+   private getDate(){
+      const d  = new Date();
+      return `${d.getFullYear()} - ${d.getMonth() + 1} - ${d.getDate()}`;
+  }
+
+  onSubmit(event) {
+      event.preventDefault();
       console.log('button working?');
+
+      
+      const date = this.getDate();
+      // data from API
+      const atype = this.alienForm.get('atype').value;
+      const action = this.alienForm.get('action').value;
+      const encounter = new NewEncounter(atype, date, action, '4');
+
+      this.encountersService.submitEncounter(encounter).subscribe(() => {
+        this.router.navigate(['/encounter']);
+        console.log(atype);
+      
+    } , (err) => {
+        console.log(err);
+      });
+    
   }
 }

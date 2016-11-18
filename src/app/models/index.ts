@@ -26,7 +26,7 @@ export class NewEncounter {
        public atype: string,
         public date: string,
         public action: string,
-        public colonist_id: number
+        public colonist_id: string
     ) {}
 
 }
