@@ -11,7 +11,7 @@ h1 {
     font-weight: 100;
     font-size: 3rem;
     color: white;
-    padding: 25%;
+    padding: 15%;
     text-align: center;
 }
 
@@ -23,11 +23,22 @@ p {
     text-align: center;
 }
 
-a {
-    color: white;
+.pulse-button-div {
+    align-self: center;
+    margin: 5% 0;
 }
 
-.pulse-button {
-    text-align: center;
-    height: 10%;
+.pulse-button-div a {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 20%;
+    opacity: .6;
+
+}
+
+.pulse-button-div a:hover {
+    opacity: .4;
 }

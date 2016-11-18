@@ -55,7 +55,7 @@ export class AlienReportComponent implements OnInit {
       const atype = this.alienForm.get('atype').value;
       const action = this.alienForm.get('action').value;
       
-      const colonist_id = localStorage.getItem('colonists.id');
+      const colonist_id = localStorage.getItem("colonist_id");
       const encounter = new NewEncounter(atype, date, action, colonist_id);
       this.encountersService.submitEncounter(encounter).subscribe(() => {
         this.router.navigate(['/encounter']);

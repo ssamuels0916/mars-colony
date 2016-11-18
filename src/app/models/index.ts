@@ -42,7 +42,7 @@ export class NewColonist {
 export interface Colonist {
         name: string;
          job: Job;
-         id: string;
+         id: number;
          age: number;
 
 }
