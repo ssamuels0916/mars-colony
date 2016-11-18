@@ -4,17 +4,14 @@ import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractC
 import { NewColonist, Job } from '../models';
 import { cantBe } from '../shared/validators';
 import  JobsService  from '../services/jobs.service';
-
-
-
-
-
+import  ColonistsService  from '../services/colonists.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  providers: [JobsService]
+  providers: [JobsService, ColonistsService]
 })
 export class RegisterComponent implements OnInit {
 
@@ -27,7 +24,9 @@ export class RegisterComponent implements OnInit {
 
 
 
-  constructor(public jobService: JobsService) {
+  constructor(private jobService: JobsService,
+        private colonistService: ColonistsService,
+        private router: Router) {
 
     jobService.getJobs().subscribe((jobs) => {
         this.marsJobs = jobs;
@@ -64,8 +63,19 @@ return (control: AbstractControl): {[key: string]: any} => {
       const name = this.registerForm.get('name').value;
       const age = this.registerForm.get('age').value;
       const job_id = this.registerForm.get('job_id').value;
-      console.log('ok, let us register this new colonist:', new NewColonist(name, age, job_id));
+      // console.log('ok, let us register this new colonist:', new NewColonist(name, job_id, age));
+      
+      
+      const colonist = new NewColonist(name, job_id, age);
 
+      this.colonistService.submitColonist(colonist).subscribe(() => {
+        this.router.navigate(['/encounter']);
+        console.log('success');
+      
+    } , (err) => {
+        console.log(err);
+      });
     }
+    
   }
 }

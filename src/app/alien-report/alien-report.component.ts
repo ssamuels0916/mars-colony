@@ -58,7 +58,7 @@ export class AlienReportComponent implements OnInit {
 
       this.encountersService.submitEncounter(encounter).subscribe(() => {
         this.router.navigate(['/encounter']);
-        console.log(atype);
+        console.log('success');
       
     } , (err) => {
         console.log(err);
