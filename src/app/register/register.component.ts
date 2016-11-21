@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
+import { HostBinding,
+         trigger, transition, animate,
+         style, state } from '@angular/core';
 import { NewColonist, Job } from '../models';
 import { cantBe } from '../shared/validators';
 import  JobsService  from '../services/jobs.service';
@@ -11,10 +14,40 @@ import { Router, ActivatedRoute } from '@angular/router';
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  providers: [JobsService, ColonistsService]
+  providers: [JobsService, ColonistsService],
+  animations: [
+    trigger('routeAnimation', [
+      state('*',
+        style({
+          opacity: 1,
+          transform: 'translateX(0%)'
+        })
+      ),
+      transition(':enter', [
+        style({
+          opacity: 0,
+          transform: 'translateY(-100%)'
+        }),
+        animate('0.2s ease-in')
+      ]),
+      transition(':leave', [
+        animate('0.5s ease-out', style({
+          opacity: 0,
+          transform: 'translateY(100%)'
+        }))
+      ])
+    ])
+  ]
+
 })
 export class RegisterComponent implements OnInit {
+  @HostBinding('@routeAnimation') get routeAnimation() {
+    return true;
+  }
 
+  @HostBinding('style.display') get display() {
+    return 'block';
+  }
 // declare data types here
   colonist: NewColonist;
   marsJobs: Job[];

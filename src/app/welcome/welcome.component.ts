@@ -23,7 +23,7 @@ import { HostBinding,
         animate('0.2s ease-in')
       ]),
       transition(':leave', [
-        animate('0.5s ease-out', style({
+        animate('0.8s ease-out', style({
           opacity: 0,
           transform: 'translateY(100%)'
         }))
