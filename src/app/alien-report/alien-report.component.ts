@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HostBinding,
+         trigger, transition, animate,
+         style, state } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Alien, NewEncounter } from '../models';
 import { cantBe } from '../shared/validators';
@@ -11,10 +14,39 @@ import { Router, ActivatedRoute } from '@angular/router';
   selector: 'app-alien-report',
   templateUrl: './alien-report.component.html',
   styleUrls: ['./alien-report.component.css'],
-  providers: [AliensService, EncountersService  ]
+  providers: [AliensService, EncountersService],
+  animations: [
+    trigger('routeAnimation', [
+      state('*',
+        style({
+          opacity: 1,
+          transform: 'translateX(0%)'
+        })
+      ),
+      transition(':enter', [
+        style({
+          opacity: 0,
+          transform: 'translateX(-100%)'
+        }),
+        animate('0.2s ease-in')
+      ]),
+      transition(':leave', [
+        animate('0.5s ease-out', style({
+          opacity: 0,
+          transform: 'translateY(100%)'
+        }))
+      ])
+    ])
+  ]
 })
 export class AlienReportComponent implements OnInit {
+@HostBinding('@routeAnimation') get routeAnimation() {
+    return true;
+  }
 
+  @HostBinding('style.display') get display() {
+    return 'block';
+  }
   marsAliens: Alien[];
   alienForm: FormGroup;
   NO_ALIEN_SELECTED = '(none)';

@@ -54,4 +54,12 @@ div.report-encounter {
     background-color: black;
     display: flex;
     justify-content: center;
+    position: relative;
+}
+
+.home {
+    position: absolute;
+    font-size: 1rem;
+    top: 150px;
+    right: 50px;
 }

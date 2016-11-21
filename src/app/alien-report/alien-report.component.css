@@ -47,7 +47,7 @@ form.register-form {
 
 ::-webkit-input-placeholder,
 .alien-report {
-    color: red;
+    color: #AF078C;
 }
 
 textarea {
@@ -70,8 +70,25 @@ button:hover {
 }
 
 div.submit-report {
+    position: relative;
+    height: 100px;
     width: 100vw;
     background-color: black;
     display: flex;
     justify-content: center;
+}
+
+a.home {
+    position: absolute;
+    right: 50px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+a:hover {
+    cursor: pointer;
 }

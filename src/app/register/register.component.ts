@@ -49,7 +49,7 @@ return (control: AbstractControl): {[key: string]: any} => {
   this.registerForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     age: new FormControl('', [Validators.required, Validators.maxLength(3)]),
-    job_id: new FormControl(this.NO_JOB_SELECTED, [cantBe(this.NO_JOB_SELECTED)])
+    job_id: new FormControl('(none)', [cantBe(this.NO_JOB_SELECTED)])
   });
 
   }
@@ -63,7 +63,6 @@ return (control: AbstractControl): {[key: string]: any} => {
       const name = this.registerForm.get('name').value;
       const age = this.registerForm.get('age').value;
       const job_id = this.registerForm.get('job_id').value;
-      // console.log('ok, let us register this new colonist:', new NewColonist(name, job_id, age));
       
       
       const colonist = new NewColonist(name, job_id, age);
